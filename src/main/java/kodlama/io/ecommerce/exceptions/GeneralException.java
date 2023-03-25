@@ -19,4 +19,8 @@ public class GeneralException {
     public ResponseEntity<?>handle(QuantityException quantityException){
         return new ResponseEntity<>(quantityException.getMessage(),HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(BrandExistsException.class)
+    public ResponseEntity<?> handle(BrandExistsException brandExistsException){
+        return new ResponseEntity<>(brandExistsException.getMessage(),HttpStatus.BAD_REQUEST);
+    }
 }
