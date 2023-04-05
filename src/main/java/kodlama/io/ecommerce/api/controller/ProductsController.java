@@ -1,10 +1,18 @@
 package kodlama.io.ecommerce.api.controller;
 
 import kodlama.io.ecommerce.business.abstracts.ProductService;
-import kodlama.io.ecommerce.entities.Product;
+import kodlama.io.ecommerce.business.dto.request.create.product.CreateProductRequest;
+import kodlama.io.ecommerce.business.dto.request.update.product.UpdateProductResponse;
+import kodlama.io.ecommerce.business.dto.response.create.product.CreateProductResponse;
+import kodlama.io.ecommerce.business.dto.response.get.product.GetAllProductsResponse;
+import kodlama.io.ecommerce.business.dto.response.get.product.GetAllProductsWithCategoriesResponse;
+import kodlama.io.ecommerce.business.dto.response.get.product.GetProductResponse;
+import kodlama.io.ecommerce.business.dto.response.get.product.GetProductWithCategoriesResponse;
+import kodlama.io.ecommerce.business.dto.response.update.product.UpdateProductRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -15,13 +23,12 @@ public class ProductsController {
         this.productService = productService;
     }
     @GetMapping
-    public ResponseEntity<List<Product>> getAll(){
+    public ResponseEntity<List<GetAllProductsResponse>> getAll(){
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<?> saveProduct(@RequestBody Product product){
-        productService.saveProduct(product);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<CreateProductResponse> saveProduct(@RequestBody CreateProductRequest productRequest){
+        return new ResponseEntity<>(productService.saveProduct(productRequest),HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProductPyId(@PathVariable int id){
@@ -29,12 +36,19 @@ public class ProductsController {
         return ResponseEntity.ok().build();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable int id){
+    public ResponseEntity<GetProductResponse> getProductById(@PathVariable int id){
         return new ResponseEntity<>(productService.getProductById(id),HttpStatus.OK);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable int id,@RequestBody Product product){
-        productService.updateProduct(id,product);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable int id, @RequestBody UpdateProductRequest updateProductRequest){
+        return new ResponseEntity<>(productService.updateProduct(id,updateProductRequest),HttpStatus.OK);
+    }
+    @GetMapping("/with-categories/{id}")
+    public ResponseEntity<GetProductWithCategoriesResponse> getProductWithCategories(@PathVariable int id){
+        return new ResponseEntity<>(productService.getProductWithCategories(id),HttpStatus.OK);
+    }
+    @GetMapping("/get-all-with-categories")
+    public ResponseEntity<List<GetAllProductsWithCategoriesResponse>> getAllProductsWithC(){
+        return new ResponseEntity<>(productService.getProductsWithCategories(),HttpStatus.OK);
     }
 }

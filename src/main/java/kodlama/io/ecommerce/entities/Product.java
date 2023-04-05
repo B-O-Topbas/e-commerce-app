@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -20,4 +22,7 @@ public class Product {
     private int quantity;
     private double price;
     private String description;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_category",joinColumns = @JoinColumn(name = "product_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "category_id",referencedColumnName = "id"))
+    private List<Category> categories;
 }
