@@ -12,7 +12,8 @@ import lombok.Setter;
 public class CreateProductResponse {
     private int id;
     private String name;
-    private int quantity;
-    private double price;
+    private int stockQuantity;
+    private double unirPrice;
     private String description;
+    private boolean situation;
 }

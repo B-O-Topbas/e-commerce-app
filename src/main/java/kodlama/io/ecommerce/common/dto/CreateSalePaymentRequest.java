@@ -1,6 +1,6 @@
-package kodlama.io.ecommerce.business.dto.request;
+package kodlama.io.ecommerce.common.dto;
 
-import kodlama.io.ecommerce.business.dto.request.PaymentRequest;
+import kodlama.io.ecommerce.business.dto.request.create.PaymentRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

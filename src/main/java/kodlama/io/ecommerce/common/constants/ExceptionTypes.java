@@ -1,4 +1,4 @@
-package kodlama.io.rentacar.common.constants;
+package kodlama.io.ecommerce.common.constants;
 
 public class ExceptionTypes {
     public static class Exception {

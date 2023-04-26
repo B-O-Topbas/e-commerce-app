@@ -1,4 +1,4 @@
-package kodlama.io.rentacar.core.utils.results;
+package kodlama.io.ecommerce.core.utils.results;
 
 import lombok.Getter;
 import lombok.Setter;

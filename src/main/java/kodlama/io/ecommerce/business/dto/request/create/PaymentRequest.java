@@ -1,4 +1,4 @@
-package kodlama.io.ecommerce.business.dto.request;
+package kodlama.io.ecommerce.business.dto.request.create;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

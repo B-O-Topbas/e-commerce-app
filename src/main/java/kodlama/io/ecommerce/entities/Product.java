@@ -19,9 +19,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int quantity;
-    private double price;
+    private int stockQuantity;
+    private double unitPrice;
     private String description;
+    private boolean situation;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "product_category",joinColumns = @JoinColumn(name = "product_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "category_id",referencedColumnName = "id"))
     private List<Category> categories;

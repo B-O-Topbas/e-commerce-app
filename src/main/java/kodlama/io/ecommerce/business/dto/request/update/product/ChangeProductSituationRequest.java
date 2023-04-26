@@ -9,5 +9,5 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChangeProductStiuationRequest { private boolean stiutation;
+public class ChangeProductSituationRequest { private boolean stiutation;
 }

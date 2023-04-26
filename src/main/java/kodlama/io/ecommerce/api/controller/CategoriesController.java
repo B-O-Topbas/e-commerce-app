@@ -37,7 +37,8 @@ public class CategoriesController {
         categoryService.deleteCategory(id);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<UpdateCategoryResponse> updateCategory(@PathVariable int id, @RequestBody UpdateCategoryRequest updateCategoryRequest){
+    public ResponseEntity<UpdateCategoryResponse> updateCategory(@PathVariable int id
+            , @RequestBody UpdateCategoryRequest updateCategoryRequest){
         return new ResponseEntity<>(categoryService.updateCategory(id,updateCategoryRequest),HttpStatus.OK);
     }
 }

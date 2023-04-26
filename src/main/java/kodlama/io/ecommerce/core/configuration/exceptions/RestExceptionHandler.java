@@ -1,9 +1,9 @@
-package kodlama.io.rentacar.core.configuration.exceptions;
+package kodlama.io.ecommerce.core.configuration.exceptions;
 
 import jakarta.validation.ValidationException;
-import kodlama.io.rentacar.common.constants.ExceptionTypes;
-import kodlama.io.rentacar.core.exceptions.BusinessException;
-import kodlama.io.rentacar.core.utils.results.ExceptionResult;
+import kodlama.io.ecommerce.common.constants.ExceptionTypes;
+import kodlama.io.ecommerce.core.exceptions.BusinessException;
+import kodlama.io.ecommerce.core.utils.results.ExceptionResult;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
